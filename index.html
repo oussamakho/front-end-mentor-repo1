@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Intro section with dropdown navigation</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+
+</head>
+<body>
+<nav>
+  <div class="left-section">
+          <a href="" class="logo">snap</a>
+    <ul class="navliks">
+      <li>
+        <div class="select-menu">
+          <div class="select">
+              <span>Features</span>
+              <i class="ri-arrow-down-s-line"></i>
+          </div>
+          <div class="option-list">
+            <div class="option">
+             <img src="/images/icon-todo.svg" alt=""> Todo List
+            </div>
+            <div class="option">
+             <img src="/images/icon-calendar.svg" alt=""> Calendar
+            </div>
+            <div class="option">
+             <img src="/images/icon-reminders.svg" alt=""> Reminders
+            </div>
+            <div class="option">
+             <img src="/images/icon-planning.svg" alt=""> Planning
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="select-menu">
+          <div class="select">
+              <span>Company</span>
+              <i class="ri-arrow-down-s-line"></i>
+          </div>
+          <div class="option-list">
+            <div class="option">
+              History
+            </div>
+            <div class="option">
+              Our Team
+            </div>
+            <div class="option">
+              Blog
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <a href="">Careers</a>
+      </li>
+      <li>
+        <a href="">About</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="log">
+    <a href="#">Login</a>
+    <a href="#" class="log-btn">Register</a>
+  </div>
+
+
+</nav>
+<section class="home">
+  <div class="home-container">
+      <div class="left-home">
+          <div class="txt-section">
+              <h1>Make <br> remote work</h1>
+              <p>Get your team in sync, no matter your location. <br>
+                 Streamline processes, create team rituals, and <br>
+                 watch productivity soar.
+              </p>
+              <a href="#" class="home-btn">Learn more</a>
+               <div class="img-sectiom">
+                  <img src="/images/client-databiz.svg" alt="">
+                  <img src="/images/client-audiophile.svg" alt="">
+                  <img src="/images/client-meet.svg" alt="">
+                  <img src="/images/client-maker.svg" alt="">
+               </div>
+          </div>
+      </div>
+      <div class="right-home">
+        <img src="/images/image-hero-desktop.png" alt="">
+      </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  const selects = document.querySelectorAll('.select');
+  const option_lists = document.querySelectorAll('.option-list');
+  const options = document.querySelectorAll('.option');
+
+  selects.forEach((select, index) => {
+    select.addEventListener("click", () => {
+      option_lists[index].classList.toggle("active");
+      select.querySelector(".ri-arrow-down-s-line").classList.toggle("ri-arrow-up-s-line");
+    });
+
+    options.forEach((option, optionIndex) => {
+      option.addEventListener("click", () => {
+        options.forEach((opt) => {
+          opt.classList.remove("selected");
+        });
+        select.querySelector("span").textContent = options[optionIndex].textContent;
+        options[optionIndex].classList.add("selected");
+        option_lists[index].classList.toggle("active");
+        select.querySelector(".ri-arrow-down-s-line").classList.toggle("ri-arrow-up-s-line");
+      });
+    });
+  });
+
+  let menu = document.querySelector('.nav-icon');
+let navbar = document.querySelector('.navliks');
+
+menu.onclick = () => {
+    menu.classList.toggle('bx-x')
+    navbar.classList.toggle('open')
+}
+
+window.onscroll = () => {
+    menu.classList.remove('bx-x')
+    navbar.classList.remove('open')
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <script>
+  const select = document.querySelector('.select');
+  const option_list = document.querySelector('.option-list');
+  const options = document.querySelectorAll('.option');
+
+  select.addEventListener("click",() => {
+    option_list.classList.toggle("active");
+    select.querySelector(".ri-arrow-down-s-line").classList.toggle("ri-arrow-up-s-line")
+  });
+
+  options.forEach((option) =>{
+    option.addEventListener("click", () => {
+      options.forEach((option) => {option.classList.remove(selected)});
+      select.querySelector("span").innerHTML = option.innerHTML;
+      option.classList.add("selected")
+      option_list.classList.toggle("active");
+      select.querySelector("ri-arrow-down-s-line").classList.toggle("ri-arrow-up-s-line")
+    })
+  })
+</script> -->
+</body>
+</html>
